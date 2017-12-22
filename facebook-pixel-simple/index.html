@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Facebook Pixel Demo 1</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="dialog js-dialog" aria-hidden="false" role="dialog" aria-modal="true" aria-label="" aria-describedby="dialogMessage">
+    <p class="dialog__message js-dialog-message" id="dialogMessage">Diese Seite nutzt einen Facebook-Pixel. Sie können der Nutzung jederzeit durch einen Klick auf <a href="/?fb-op-out=true" class="js-fb-opt-out">Opt out</a> widersprechen. .</p>
+  </div>
+  <main>
+    <section>
+      <h1>FB-Test-Output</h1>
+      <button class="js-test-button">Event testen</button>
+      <ul class="js-test-output"></ul>
+    </section>
+    </main>
+  <script src="../lib/FacebookPixelController/FacebookPixelController.js" async></script>
+  <script src="js/main.js" async></script>
+  <!-- Facebook Pixel Code -->
+<script data-pixel="fb">
+  var hasOptedOut = localStorage.getItem('fb-pixel-status') === 'opt-out'
+
+  if (!hasOptedOut) {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1944570812537922');
+    fbq('track', 'PageView');
+  }
+  </script>
+  <script>
+      fbq('track', 'ViewContent', {
+        value: 'test',
+        currency: 'AMD'
+      });
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1944570812537922&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+</body>
+</html>
