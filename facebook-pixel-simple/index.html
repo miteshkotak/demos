@@ -15,8 +15,6 @@
       return doNotTrack || hasOptedOut;
     }
 
-    console.log(optOutWish())
-
     if (optOutWish()) {
       console.info('User prohibits tracking. Not embedding Facebook’s script.')
     } else {
