@@ -11,7 +11,7 @@
   }
 
   $testButton.addEventListener('click', (e) => {
-    // In a real app there will probably be more logic to an input then just
+    // In a real app there will probably be more logic to an input than just
     // emitting an event. Therefore we check if fbq is defined
     // to avoid exceptions after deactivating tracking
     if (localStorage.getItem('fb-pixel-status') === 'opt-in') {
