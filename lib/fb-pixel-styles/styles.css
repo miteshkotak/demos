@@ -29,7 +29,11 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  padding-bottom: 8rem;
   width: 100%; }
+  @media (min-width: 415px) {
+    body {
+      flex-flow: row; } }
 
 body > * {
   padding: 2rem; }
@@ -37,9 +41,19 @@ body > * {
 main {
   margin-bottom: auto;
   max-width: 25rem; }
+  @media (min-width: 415px) {
+    main {
+      margin-right: auto; } }
 
-.nav-link:not(:last-child) {
-  margin-right: 2rem; }
+.icon {
+  opacity: .4;
+  padding: 0;
+  align-self: flex-start;
+  position: sticky;
+  top: 2rem;
+  padding-right: 2rem; }
+  .icon img {
+    max-width: 83px; }
 
 .dialog {
   align-content: center;
@@ -60,7 +74,8 @@ main {
   transform: translate(-50%, 0) scale(1);
   transform-origin: center bottom;
   transition: transform .2s ease-out, opacity .2s ease-out;
-  width: 90%; }
+  width: 90%;
+  z-index: 20; }
   .dialog[aria-hidden="true"] {
     opacity: .1;
     transform: translate(-50%, 101%) scale(0.9); }

@@ -16,7 +16,12 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  padding-bottom: 8rem;
   width: 100%;
+
+  @media (min-width: 415px) {
+    flex-flow: row;
+  }
 }
 
 body > * {
@@ -26,10 +31,23 @@ body > * {
 main {
   margin-bottom: auto;
   max-width: 25rem;
+
+  @media (min-width: 415px) {
+    margin-right: auto;
+  }
 }
 
-.nav-link:not(:last-child) {
-  margin-right: 2rem;
+.icon {
+  opacity: .4;
+  padding: 0;
+  align-self: flex-start;
+  position: sticky;
+  top: 2rem;
+  padding-right: 2rem;
+
+  img {
+    max-width: 83px;
+  }
 }
 
 @import "structures/dialog";

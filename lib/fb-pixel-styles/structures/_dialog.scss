@@ -18,6 +18,7 @@
     transform-origin: center bottom;
     transition: transform .2s ease-out, opacity .2s ease-out;
     width: 90%;
+    z-index: 20;
 
     &[aria-hidden="true"] {
         opacity: .1;
