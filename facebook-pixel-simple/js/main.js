@@ -15,7 +15,7 @@ const pixelDebugHelper = () => {
     $debugOutput.appendChild(li)
   }
 
-  const addDebugStatus = () => {
+  const setDebugStatus = () => {
     $status = document.querySelector('.js-opt-out-status')
     const optOut = optOutWish()
     const text = optOut ? 'Pixel ist deaktiviert.' : 'Pixel ist aktiviert.'
@@ -34,11 +34,13 @@ const pixelDebugHelper = () => {
     } else {
       addDebugMessage('fbq war nicht definiert. Kein eigenes Event gesendet.')
     }
+
+    setDebugStatus()
   })
 
   $optOut.addEventListener('click', () => {
     addDebugMessage('Opt Out-Link geklickt.')
-    addDebugStatus()
+    setDebugStatus()
   })
 }
 
