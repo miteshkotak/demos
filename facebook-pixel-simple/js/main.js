@@ -44,12 +44,6 @@ const pixelDebugHelper = () => {
   })
 }
 
-const pixelDebugInit = () => {
-  if (document.readyState === 'complete') {
-      pixelDebugHelper();
-  } else {
-      setTimeout(() => {
-        pixelDebugInit();
-      }, 50);
-  }
-}
+window.addEventListener('load', () => {
+  pixelDebugHelper()
+})
