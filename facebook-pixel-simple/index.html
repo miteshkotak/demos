@@ -39,12 +39,35 @@
   </div>
   <main>
     <section>
-      <h1>FB-Test-Output</h1>
       <button class="js-test-button">Event testen</button>
+      <h3>Opt-Out-Status</h3>
+      <p class="js-opt-out-status"></p>
+      <h3>FB-Test-Output</h3>
       <ul class="js-test-output"></ul>
     </section>
     </main>
   <script src="../lib/FacebookPixelController/FacebookPixelController-min.js" async></script>
   <script src="js/main-min.js" async></script>
+  <script>
+    var paintStatus = function() {
+      var optOut = optOutWish();
+      var $status = document.querySelector('.js-opt-out-status');
+      var text = optOut ? 'Pixel ist deaktiviert.' : 'Pixel ist aktiviert.';
+
+      $status.innerText = text;
+    }
+
+    var init = function () {
+      if (document.readyState === 'complete') {
+          paintStatus();
+      } else {
+          setTimeout(function() {
+              init();
+          }, 50);
+      }
+    }
+
+    init();
+    </script>
 </body>
 </html>

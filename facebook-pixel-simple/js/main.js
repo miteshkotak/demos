@@ -1,12 +1,26 @@
-(() => {
+const pixelDebugHelper = () => {
   const $testButton = document.querySelector('.js-test-button')
   const $optOut = document.querySelector('.js-fb-opt-out')
   const $debugOutput = document.querySelector('.js-test-output')
+
+  const optOutWish = () => {
+    const doNotTrack = navigator.doNotTrack === '1'
+    const hasOptedOut = localStorage.getItem('fb-pixel-status') === 'opt-out'
+    return doNotTrack || hasOptedOut
+  }
 
   const addDebugMessage = (message) => {
     const li = document.createElement('li')
     li.innerText = message
     $debugOutput.appendChild(li)
+  }
+
+  const addDebugStatus = () => {
+    $status = document.querySelector('.js-opt-out-status')
+    const optOut = optOutWish()
+    const text = optOut ? 'Pixel ist deaktiviert.' : 'Pixel ist aktiviert.'
+
+    $status.innerText = text
   }
 
   $testButton.addEventListener('click', (e) => {
@@ -24,5 +38,16 @@
 
   $optOut.addEventListener('click', () => {
     addDebugMessage('Opt Out-Link geklickt.')
+    addDebugStatus()
   })
-})()
+}
+
+const pixelDebugInit = () => {
+  if (document.readyState === 'complete') {
+      pixelDebugHelper();
+  } else {
+      setTimeout(() => {
+        pixelDebugInit();
+      }, 50);
+  }
+}
