@@ -16,7 +16,7 @@ const pixelDebugHelper = () => {
   }
 
   const setDebugStatus = () => {
-    $status = document.querySelector('.js-opt-out-status')
+    const $status = document.querySelector('.js-opt-out-status')
     const optOut = optOutWish()
     const text = optOut ? 'Pixel ist deaktiviert.' : 'Pixel ist aktiviert.'
 
@@ -44,6 +44,10 @@ const pixelDebugHelper = () => {
   })
 }
 
-window.addEventListener('load', () => {
+if (document.readyState === 'complete') {
   pixelDebugHelper()
-})
+} else {
+  window.addEventListener('load', () => {
+    pixelDebugHelper()
+  })
+}
